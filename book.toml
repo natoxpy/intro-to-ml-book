@@ -1,0 +1,16 @@
+[book]
+authors = ["toxpy"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Machine Learning in Rust"
+
+[output.html]
+mathjax-support = true
+
+[output.html.playground]
+copyable = true # include the copy button for copying code snippets
+copy-js = true  # includes the JavaScript for the code editor
+runnable = true # displays a run button for rust code
+
+[preprocessor.alerts]
