@@ -18,22 +18,22 @@ With this cost function, where \\(x\\) is the output of the model and \\(y\\) is
 
 \\[
 \begin{split}
-C(z) &= \frac{1}{2} (y - x)^2 \\\\
-C'(z) &= x - y
+C(x, y) &= \frac{1}{2} (y - x)^2 \\\\
+C'(x, y) &= x - y
 \end{split}
 \\]
 
 This represents basic forward propagation in a compressed form:
 
 \\[
-a^{l+1}\_k = \sigma(W_{kj} a^l_j + b_k)
+a^{l+1}\_k = \sigma(w_{kj} a^l_j + b_k)
 \\]
 
 And here's the backpropagation algorithm:
 
 \\[
 \begin{split}
-\delta^L &= C'(a^{L}) \sigma'(z^{L}) \\\\
+\delta^L &= C'(a^{L}) \odot \sigma'(z^{L}) \\\\
 \delta^l &= ((w^{l+1})^T \delta^{l+1}) \odot \sigma'(z^{l}) \\\\
 \frac{\partial C}{\partial b^l_j} &= \delta^l_j \\\\
 \frac{\partial C}{\partial w^{l}\_{jk}} &= \delta^l_j {(a^{l-1}\_k)}^T \\\\
